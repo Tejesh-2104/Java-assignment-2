@@ -1,0 +1,102 @@
+import java.util.Scanner;
+
+// Base class Person
+class Person {
+    protected String name;
+    protected int age;
+    protected String phoneNumber;
+    protected String address;
+
+    // Constructor
+    public Person(String name, int age, String phoneNumber, String address) {
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    // Method to print general details
+    public void printDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Address: " + address);
+    }
+}
+
+// Subclass Student
+class Student extends Person {
+    private String course;
+
+    // Constructor
+    public Student(String name, int age, String phoneNumber, String address, String course) {
+        super(name, age, phoneNumber, address);
+        this.course = course;
+    }
+
+    // Method to print course details
+    public void printCourse() {
+        System.out.println("Course: " + course);
+    }
+}
+
+// Subclass Teacher
+class Teacher extends Person {
+    private String subject;
+
+    // Constructor
+    public Teacher(String name, int age, String phoneNumber, String address, String subject) {
+        super(name, age, phoneNumber, address);
+        this.subject = subject;
+    }
+
+    // Method to print subject details
+    public void printSubject() {
+        System.out.println("Subject: " + subject);
+    }
+}
+
+// Main class
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for Student
+        System.out.print("Enter Student Name: ");
+        String studentName = scanner.nextLine();
+        System.out.print("Enter Student Age: ");
+        int studentAge = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Enter Student Phone Number: ");
+        String studentPhone = scanner.nextLine();
+        System.out.print("Enter Student Address: ");
+        String studentAddress = scanner.nextLine();
+        System.out.print("Enter Student Course: ");
+        String studentCourse = scanner.nextLine();
+        
+        Student student = new Student(studentName, studentAge, studentPhone, studentAddress, studentCourse);
+        System.out.println("\nStudent Details:");
+        student.printDetails();
+        student.printCourse();
+
+        // Input for Teacher
+        System.out.print("\nEnter Teacher Name: ");
+        String teacherName = scanner.nextLine();
+        System.out.print("Enter Teacher Age: ");
+        int teacherAge = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Enter Teacher Phone Number: ");
+        String teacherPhone = scanner.nextLine();
+        System.out.print("Enter Teacher Address: ");
+        String teacherAddress = scanner.nextLine();
+        System.out.print("Enter Teacher Subject: ");
+        String teacherSubject = scanner.nextLine();
+        
+        Teacher teacher = new Teacher(teacherName, teacherAge, teacherPhone, teacherAddress, teacherSubject);
+        System.out.println("\nTeacher Details:");
+        teacher.printDetails();
+        teacher.printSubject();
+
+        scanner.close();
+    }
+}
