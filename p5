@@ -1,0 +1,48 @@
+// Parent class: Vehicle
+class Vehicle {
+    // Method to print vehicle details
+    public void printVehicle() {
+        System.out.println("This is a vehicle.");
+    }
+}
+
+// Class Car extends Vehicle
+class Car extends Vehicle {
+    // Method to print car details
+    public void printCar() {
+        System.out.println("This is a car.");
+    }
+}
+
+// Class Bike extends Vehicle
+class Bike extends Vehicle {
+    // Method to print bike details
+    public void printBike() {
+        System.out.println("This is a bike.");
+    }
+}
+
+// Class ElectricCar extends Car
+class ElectricCar extends Car {
+    // Unique method for ElectricCar
+    public void printElectricCar() {
+        System.out.println("This is an electric car.");
+    }
+}
+
+// Main class to test the functionality
+public class Main {
+    public static void main(String[] args) {
+        // Creating an ElectricCar object
+        ElectricCar electricCar = new ElectricCar();
+        
+        // Calling methods from Vehicle class (through ElectricCar)
+        electricCar.printVehicle();  // From Vehicle class
+        
+        // Calling methods from Car class (through ElectricCar)
+        electricCar.printCar();      // From Car class
+        
+        // Calling the unique method from ElectricCar
+        electricCar.printElectricCar();  // From ElectricCar class
+    }
+}
