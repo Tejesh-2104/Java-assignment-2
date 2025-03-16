@@ -1,0 +1,48 @@
+// Abstract class Telephone
+abstract class Telephone {
+    // Abstract methods
+    abstract void call();
+    abstract void lift();
+    abstract void disconnect();
+}
+
+// Subclass SmartTelephone extending Telephone
+class SmartTelephone extends Telephone {
+    // Implementing abstract methods
+    @Override
+    void call() {
+        System.out.println("Dialing a number and making a call...");
+    }
+    
+    @Override
+    void lift() {
+        System.out.println("Lifting the receiver...");
+    }
+    
+    @Override
+    void disconnect() {
+        System.out.println("Call disconnected.");
+    }
+    
+    // Unique method of SmartTelephone
+    void browseInternet() {
+        System.out.println("Browsing the internet...");
+    }
+}
+
+// Main class to demonstrate polymorphism
+public class TelephoneDemo {
+    public static void main(String[] args) {
+        // Polymorphism: Using Telephone reference for SmartTelephone object
+        Telephone phone = new SmartTelephone();
+        
+        // Calling overridden methods via polymorphism
+        phone.call();
+        phone.lift();
+        phone.disconnect();
+        
+        // Directly accessing SmartTelephone's unique method
+        SmartTelephone smartPhone = new SmartTelephone();
+        smartPhone.browseInternet();
+    }
+}
