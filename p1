@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+// Superclass Vehicle
+class Vehicle {
+    protected String brand;
+    protected int speed;
+
+    // Constructor
+    public Vehicle(String brand, int speed) {
+        this.brand = brand;
+        this.speed = speed;
+    }
+
+    // Method to print speed
+    public void printSpeed() {
+        System.out.println("Speed: " + speed + " km/h");
+    }
+}
+
+// Subclass Car
+class Car extends Vehicle {
+    private String model;
+
+    // Constructor chaining
+    public Car(String brand, int speed, String model) {
+        super(brand, speed); // Calls Vehicle constructor
+        this.model = model;
+    }
+
+    // Method to print car details
+    public void printCarDetails() {
+        System.out.println("Car Brand: " + brand);
+        System.out.println("Model: " + model);
+        printSpeed();
+    }
+}
+
+// Subclass Bike
+class Bike extends Vehicle {
+    private boolean isSportBike;
+
+    // Constructor chaining
+    public Bike(String brand, int speed, boolean isSportBike) {
+        super(brand, speed); // Calls Vehicle constructor
+        this.isSportBike = isSportBike;
+    }
+
+    // Method to print bike details
+    public void printBikeDetails() {
+        System.out.println("Bike Brand: " + brand);
+        System.out.println("Sport Bike: " + (isSportBike ? "Yes" : "No"));
+        printSpeed();
+    }
+}
+
+// Main class to execute the program
+public class VehicleTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input for Car
+        System.out.print("Enter Car Brand: ");
+        String carBrand = scanner.nextLine();
+        System.out.print("Enter Car Speed: ");
+        int carSpeed = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Enter Car Model: ");
+        String carModel = scanner.nextLine();
+        
+        Car car = new Car(carBrand, carSpeed, carModel);
+        System.out.println("\nCar Details:");
+        car.printCarDetails();
+        
+        // Input for Bike
+        System.out.print("\nEnter Bike Brand: ");
+        String bikeBrand = scanner.nextLine();
+        System.out.print("Enter Bike Speed: ");
+        int bikeSpeed = scanner.nextInt();
+        System.out.print("Is it a sport bike? (true/false): ");
+        boolean isSportBike = scanner.nextBoolean();
+        
+        Bike bike = new Bike(bikeBrand, bikeSpeed, isSportBike);
+        System.out.println("\nBike Details:");
+        bike.printBikeDetails();
+        
+        scanner.close();
+    }
+}
